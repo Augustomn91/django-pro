@@ -5,6 +5,13 @@ from django.core.paginator import Paginator
 from django.db.models import Q, Value
 from django.db.models.functions import Concat
 from django.contrib import messages
+from rest_framework import viewsets
+from contatos.serializer.serializer import ContatoSerializer
+
+
+class ContatoViewSet(viewsets.ModelViewSet):
+    queryset = Contato.objects.all()
+    serializer_class = ContatoSerializer
 
 
 def index(request):

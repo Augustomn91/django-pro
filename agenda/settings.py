@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'contatos',
     'accounts',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
