@@ -7,11 +7,22 @@ from django.db.models.functions import Concat
 from django.contrib import messages
 from rest_framework import viewsets
 from contatos.serializer.serializer import ContatoSerializer
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework.filters import OrderingFilter
+from .paginations.contato import CustomPagination
 
 
 class ContatoViewSet(viewsets.ModelViewSet):
     queryset = Contato.objects.all()
     serializer_class = ContatoSerializer
+    filter_backends = [DjangoFilterBackend, OrderingFilter]
+    pagination_class = CustomPagination
+    filterset_fields = ['nome', 'sobrenome']
+    ordering = ['-nome']
+    OrderingFilter = [
+        'nome',
+        'sobrenome',
+    ]
 
 
 def index(request):

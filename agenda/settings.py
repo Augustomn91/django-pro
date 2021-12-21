@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+from django.contrib.messages import constants
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
     'contatos',
     'accounts',
     'rest_framework',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -134,7 +136,7 @@ MEDIA_URL = 'media/'
 
 
 # Messages
-from django.contrib.messages import constants
+
 
 MESSAGE_TAGS = {
     constants.ERROR: 'alert-danger',
@@ -143,3 +145,4 @@ MESSAGE_TAGS = {
     constants.SUCCESS: 'alert-success',
     constants.INFO: 'alert-info',
 }
+
