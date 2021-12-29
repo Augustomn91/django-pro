@@ -7,9 +7,8 @@ router = routers.DefaultRouter()
 router.register(r'Contato', ContatoViewSet)
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('busca/', views.busca, name='busca'),
-    path('<int:contato_id>', views.ver_contato, name='ver_contato'),
-    path('rest_framework/', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='contato_rest')),
+    path('', views.agenda, name='agenda'),
+    path('', views.busca, name='busca'),
+    path('<int:contato_id>/', views.ver_contato, name='ver_contato'),
+    path('api/', include(router.urls)),
 ]

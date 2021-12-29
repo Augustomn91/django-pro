@@ -6,7 +6,7 @@ from django.db.models import Q, Value
 from django.db.models.functions import Concat
 from django.contrib import messages
 from rest_framework import viewsets
-from contatos.serializer.serializer import ContatoSerializer
+from contatos.serializer.contato import ContatoSerializer
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import OrderingFilter
 from .paginations.contato import CustomPagination
@@ -25,7 +25,7 @@ class ContatoViewSet(viewsets.ModelViewSet):
     ]
 
 
-def index(request):
+def agenda(request):
 
     contatos = Contato.objects.order_by('id').filter(
         mostrar=True
